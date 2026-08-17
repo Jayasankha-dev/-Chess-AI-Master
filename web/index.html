@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Chess Master</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <main id="game-container">
+    <section id="board-area">
+      <h1>♚ AI Chess Master</h1>
+      <div id="board-wrap">
+        <div id="board" aria-label="Chess board"></div>
+        <svg id="arrow-layer" aria-hidden="true"></svg>
+      </div>
+      <div id="status">Loading...</div>
+      <div id="action-buttons">
+        <button id="reset-btn">↻ Reset</button>
+        <button id="undo-btn">↶ Undo</button>
+        <button id="redo-btn">↷ Redo</button>
+        <button id="suggest-btn" class="suggest-button">💡 Best Move</button>
+        <button id="draw-btn">🤝 Draw</button>
+        <button id="resign-btn">🏳 Resign</button>
+      </div>
+      <div id="suggestion-box" class="suggestion-box hidden">
+        <div class="suggestion-title">💡 Best Move Suggestion</div>
+        <div id="suggestion-text">Enable the optional suggestion button when you want help.</div>
+      </div>
+    </section>
+
+    <aside id="sidebar">
+      <div id="settings" class="panel">
+        <h3>⚙ Settings</h3>
+        <label for="player-color">Play as</label>
+        <select id="player-color"><option value="white">White</option><option value="black">Black</option></select>
+        <label for="ai-depth">AI Depth <span id="depth-label">3</span></label>
+        <input type="range" id="ai-depth" min="1" max="6" value="3">
+        <p class="hint">Depth 3 is the recommended balance between strength and speed.</p>
+
+        <div class="sound-row">
+          <span>🔊 Chess sounds</span>
+          <input id="sound-enabled" type="checkbox" checked>
+        </div>
+        <p class="hint">Optional. Uses bundled WAV sounds designed for this app, with a Windows system-sound fallback.</p>
+      </div>
+
+      <div id="suggestions-panel" class="panel">
+        <h3>✨ Suggestions</h3>
+        <div class="recommendation">
+          <span class="badge">RECOMMENDED</span>
+          <strong>Best setup</strong>
+          <p>AI Depth 3–4 + Chess Sounds ON + Best Move only when you need help.</p>
+        </div>
+        <button id="history-btn" class="history-button">☷ View Move History</button>
+        <p class="hint">Move history is hidden from the main screen. Open it only when you want to review the game.</p>
+      </div>
+    </aside>
+  </main>
+</div>
+
+
+
+<div id="about-modal" class="modal about-modal">
+  <div class="about-card rgb-card" role="dialog" aria-modal="true" aria-labelledby="about-title">
+    <button id="about-close" class="about-close" aria-label="Close developer information">✕</button>
+    <div class="about-logo">♚</div>
+    <div class="about-kicker">AI CHESS MASTER</div>
+    <h2 id="about-title">Built by Jayasankha Madhusith</h2>
+    <p class="about-lead">
+      A desktop chess project combining a custom chess engine, AI search, responsive UI,
+      move suggestions, legal-move guidance, sounds, and Windows-friendly packaging.
+    </p>
+
+    <div class="about-grid">
+      <div class="about-item"><span>👨‍💻 Developer</span><strong>Jayasankha Madhusith</strong></div>
+      <div class="about-item"><span>🧠 Focus</span><strong>AI • Python • UI/UX</strong></div>
+      <div class="about-item"><span>📜 License</span><strong>MIT License</strong></div>
+      <div class="about-item"><span>📅 Release</span><strong>2026</strong></div>
+    </div>
+
+    <div class="about-license">
+      <strong>MIT License</strong>
+      <p>
+        The project code is released under the MIT License. You may use, modify, and
+        redistribute the code subject to the MIT License terms.
+      </p>
+    </div>
+
+    <div class="about-actions">
+      <a class="github-button" href="https://github.com/Jayasankha-dev" target="_blank" rel="noopener noreferrer">
+        <span>★</span> Visit GitHub
+      </a>
+      <button id="about-ok">Start Playing ♟</button>
+    </div>
+
+    <p class="about-credit">Crafted with Python, Eel, JavaScript and a lot of chess ♟</p>
+  </div>
+</div>
+
+<div id="history-modal" class="modal hidden">
+  <div class="history-card">
+    <div class="history-modal-header">
+      <div>
+        <h2>☷ Move History</h2>
+        <p id="history-count">No moves yet.</p>
+      </div>
+      <button id="history-close" class="history-close" aria-label="Close move history">✕</button>
+    </div>
+    <div id="move-list" class="history-list"></div>
+  </div>
+</div>
+
+<div id="game-result-modal" class="modal hidden">
+  <div class="result-card">
+    <div id="result-icon" class="result-icon">♛</div>
+    <h2 id="result-title">Game Over</h2>
+    <p id="result-message">Game finished.</p>
+    <p id="result-reason" class="result-reason"></p>
+    <button id="result-new-game" class="result-primary">New Game</button>
+  </div>
+</div>
+
+<div id="promotion-modal" class="modal hidden">
+  <div class="modal-card">
+    <h2>Choose promotion</h2>
+    <div id="promotion-buttons">
+      <button data-piece="q">Queen</button>
+      <button data-piece="r">Rook</button>
+      <button data-piece="b">Bishop</button>
+      <button data-piece="n">Knight</button>
+    </div>
+  </div>
+</div>
+
+<script src="/eel.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
