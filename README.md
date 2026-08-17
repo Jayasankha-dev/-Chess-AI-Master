@@ -1,7 +1,7 @@
 <img width="1920" height="1016" alt="Capture" src="https://github.com/user-attachments/assets/b84f042a-90fe-4306-975a-10f1fbfeaa0a" />
 <img width="1024" height="1536" alt="steps" src="https://github.com/user-attachments/assets/55fe6b91-ffc4-409a-b930-e9a8e060d208" />
 
-````markdown
+
 # ♟️ Chess AI Master
 
 A modern desktop Chess application with an intelligent AI opponent, 
