@@ -1,0 +1,32 @@
+Game/
+│
+├── readme.md,icon.ico
+├── main.py
+├── requirements.txt
+│
+├── backend/
+│   ├── __init__.py
+│   ├── chess_core.py
+│   ├── ai_engine.py
+│   └── evaluation.py
+│
+└── web/
+    ├── index.html
+    ├── css/
+    │   └── style.css
+    ├── js/
+    │   └── script.js
+    └── svg/
+        └── wikipedia/          (PNG files will be placed here)
+            ├── wK.png
+            ├── bK.png
+            ├── wQ.png
+            ├── bQ.png
+            ├── wR.png
+            ├── bR.png
+            ├── wB.png
+            ├── bB.png
+            ├── wN.png
+            ├── bN.png
+            ├── wP.png
+            └── bP.png
